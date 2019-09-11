@@ -1,21 +1,22 @@
 import React, {useState, useEffect} from 'react';
 
-import {UseLocalStorage} from './UseLocalStorage.js';
+import {useLocalStorage} from './useLocalStorage.js';
 
-export const UseDarkMode = () => {
-	const [darkMode, setDarkMode] = UseLocalStorage('false'); 
+export const useDarkMode = () => {
+	const [darkMode, setDarkMode] = useLocalStorage('dark'); 
 
 	useEffect( () => {
-		if (darkMode){
-			const body = document.querySelector('body');
-			body.className.add('dark-mode');
-
-		}else { 
-			const body = document.querySelector('body');
-			body.className.remove('dark-mode');
+		if (!darkMode){
+			let body = document.querySelector('body');
+			body.classList.toggle('dark-mode');
+			    setDarkMode(body);
+			
 		}
 
-	}, [darkMode, storedValue, setValue] );
+	}, [darkMode]);
+	
+
+	return [darkMode, setDarkMode];
 
 }
 
