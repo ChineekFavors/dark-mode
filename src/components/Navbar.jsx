@@ -4,9 +4,9 @@ import {useDarkMode} from "./hooks/useDarkMode.js";
 
 const Navbar = () => {
 
-  const [darkMode, setDarkMode] = useDarkMode();
+  const [darkMode, setDarkMode] = useDarkMode(false);
  
-  
+  console.log('navbarjsx:darkMode', darkMode);
   const toggleMode = e => {
     e.preventDefault();
     setDarkMode(!darkMode);
