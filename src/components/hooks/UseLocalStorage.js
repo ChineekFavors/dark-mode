@@ -6,7 +6,7 @@ export const useLocalStorage = (key, initialValue) => {
 
 	const [storedValue, setStoredValue] = useState(() => {
 		const item = window.localStorage.getItem(key);
-		console.log('uselocalstorage:intem', item)
+		
 
 		return item ? JSON.parse(item) : initialValue;
 	});
